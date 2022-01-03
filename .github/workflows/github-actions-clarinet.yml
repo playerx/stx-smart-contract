@@ -26,6 +26,8 @@ jobs:
       - name: create Testnet configuration
         shell: bash
         run: |
+          echo "${{secrets.secrets.STX_SECRET_KEY}}"
+
           echo "[network]
           name = \"testnet\"
           node_rpc_address = \"https://stacks-node-api.testnet.stacks.co\"

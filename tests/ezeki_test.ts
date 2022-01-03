@@ -7,6 +7,8 @@ import {
 } from "https://deno.land/x/clarinet@v0.14.0/index.ts";
 import { assertEquals } from "https://deno.land/std@0.90.0/testing/asserts.ts";
 
+const contractName = "ezeki4";
+
 Clarinet.test({
   name: "Ensure that block height increases",
   async fn(chain: Chain, accounts: Map<string, Account>) {
@@ -36,7 +38,7 @@ Clarinet.test({
     const sender = accounts.get("deployer")!.address;
 
     const block = chain.mineBlock([
-      Tx.contractCall("ezeki3", "say-hi", [], sender),
+      Tx.contractCall(contractName, "say-hi", [], sender),
     ]);
     assertEquals(block.receipts.length, 1);
     assertEquals(block.height, 2);
@@ -56,7 +58,7 @@ Clarinet.test({
        * Add transactions with:
        * Tx.contractCall(...)
        */
-      Tx.contractCall("ezeki3", "echo", ["1"], sender),
+      Tx.contractCall(contractName, "echo", ["1"], sender),
     ]);
     assertEquals(block.height, 2);
 
