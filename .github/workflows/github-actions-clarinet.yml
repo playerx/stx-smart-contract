@@ -22,3 +22,20 @@ jobs:
         shell: bash
         run: |
           rm coverage.lcov
+
+      - name: create Testnet configuration
+        shell: bash
+        run: |
+          echo '[network]
+          name = "testnet"
+          node_rpc_address = "https://stacks-node-api.testnet.stacks.co"
+          deployment_fee_rate = 10
+
+          [accounts.deployer]
+          mnemonic = "$STXSECRETKEY"
+          ' > settings/Testnet.toml
+
+      - name: "Deploy on Testnet"
+        uses: docker://hirosystems/clarinet:latest
+        with:
+          args: publish --testnet --manifest-path=./Clarinet.toml

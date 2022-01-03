@@ -5,6 +5,6 @@ description = ""
 telemetry = false
 requirements = []
 costs_version = 2
-[contracts.ezeki]
+[contracts.ezeki3]
 path = "contracts/ezeki.clar"
 depends_on = []
