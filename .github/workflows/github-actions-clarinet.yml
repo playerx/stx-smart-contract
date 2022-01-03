@@ -37,6 +37,8 @@ jobs:
           mnemonic = \"${{ secrets.STX_SECRET_KEY }}\"
           " > settings/Testnet.toml
 
+          cat settings/Testnet.toml
+
       - name: "Deploy on Testnet"
         uses: docker://hirosystems/clarinet:latest
         with:
