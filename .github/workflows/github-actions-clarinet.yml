@@ -32,7 +32,7 @@ jobs:
           deployment_fee_rate = 10
 
           [accounts.deployer]
-          mnemonic = \"$STXSECRETKEY }}\"
+          mnemonic = \"$STXSECRETKEY\"
           " > settings/Testnet.toml
 
       - name: "Deploy on Testnet"
