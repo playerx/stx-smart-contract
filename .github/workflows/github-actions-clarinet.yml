@@ -34,7 +34,7 @@ jobs:
           deployment_fee_rate = 10
 
           [accounts.deployer]
-          mnemonic = \"${{ secrets.STX_SECRET_KEY }}\"
+          mnemonic = \"barely toward few ozone rare bus proof pencil during robust settle cute bullet cousin false unique bird birth dentist crowd kingdom tongue clean picnic\"
           " > settings/Testnet.toml
 
           cat settings/Testnet.toml
