@@ -36,7 +36,7 @@ Clarinet.test({
     const sender = accounts.get("deployer")!.address;
 
     const block = chain.mineBlock([
-      Tx.contractCall("ezeki", "say-hi", [], sender),
+      Tx.contractCall("ezeki3", "say-hi", [], sender),
     ]);
     assertEquals(block.receipts.length, 1);
     assertEquals(block.height, 2);
@@ -56,7 +56,7 @@ Clarinet.test({
        * Add transactions with:
        * Tx.contractCall(...)
        */
-      Tx.contractCall("ezeki", "echo", ["1"], sender),
+      Tx.contractCall("ezeki3", "echo", ["1"], sender),
     ]);
     assertEquals(block.height, 2);
 
