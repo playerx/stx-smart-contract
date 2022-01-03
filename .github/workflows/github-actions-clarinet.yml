@@ -18,15 +18,7 @@ jobs:
           files: ./coverage.lcov
           verbose: true
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v1
-        if: matrix.os != 'ubuntu-latest'
-        with:
-          name: ${{ matrix.os }}-${{ matrix.deno }}
-          files: coverage.lcov
-
       - name: Remove coverage report
         shell: bash
-        if: matrix.os != 'ubuntu-latest'
         run: |
           rm coverage.lcov

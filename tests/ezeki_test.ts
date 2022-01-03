@@ -8,7 +8,7 @@ import {
 import { assertEquals } from "https://deno.land/std@0.90.0/testing/asserts.ts";
 
 Clarinet.test({
-  name: "Ensure that <...>",
+  name: "Ensure that block height increases",
   async fn(chain: Chain, accounts: Map<string, Account>) {
     let block = chain.mineBlock([
       /*
@@ -35,22 +35,32 @@ Clarinet.test({
   async fn(chain: Chain, accounts: Map<string, Account>) {
     const sender = accounts.get("deployer")!.address;
 
-    let block = chain.mineBlock([
+    const block = chain.mineBlock([
       Tx.contractCall("ezeki", "say-hi", [], sender),
     ]);
     assertEquals(block.receipts.length, 1);
     assertEquals(block.height, 2);
 
     const inner = block.receipts[0].result.expectOk();
-    const tuple = inner.expectUtf8("hello world");
+    inner.expectUtf8("hello world");
+  },
+});
 
-    block = chain.mineBlock([
+Clarinet.test({
+  name: "Should call echo",
+  async fn(chain: Chain, accounts: Map<string, Account>) {
+    const sender = accounts.get("deployer")!.address;
+
+    const block = chain.mineBlock([
       /*
        * Add transactions with:
        * Tx.contractCall(...)
        */
+      Tx.contractCall("ezeki", "echo", ["1"], sender),
     ]);
-    assertEquals(block.receipts.length, 0);
-    assertEquals(block.height, 3);
+    assertEquals(block.height, 2);
+
+    const inner = block.receipts[0].result.expectOk();
+    inner.expectInt(1);
   },
 });
