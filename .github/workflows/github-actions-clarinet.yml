@@ -26,7 +26,7 @@ jobs:
       - name: create Testnet configuration
         shell: bash
         run: |
-          echo "${{secrets.secrets.STX_SECRET_KEY}}"
+          echo "${{secrets.STX_SECRET_KEY}}"
 
           echo "[network]
           name = \"testnet\"
