@@ -26,8 +26,8 @@ jobs:
       - name: create Testnet configuration
         shell: bash
         run: |
-          echo $STX_SECRET_KEY
-          echo "$STX_SECRET_KEY"
+          echo ${{ env.STX_SECRET_KEY }}
+          echo "${{ env.STX_SECRET_KEY }}"
           echo '--------'
           echo "[network]
           name = \"testnet\"
@@ -35,7 +35,7 @@ jobs:
           deployment_fee_rate = 10
 
           [accounts.deployer]
-          mnemonic = \"$STX_SECRET_KEY\"
+          mnemonic = \"${{ env.STX_SECRET_KEY }}\"
           " > settings/Testnet.toml
 
       - name: "Deploy on Testnet"
