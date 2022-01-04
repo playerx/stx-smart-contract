@@ -23,23 +23,23 @@ jobs:
         run: |
           rm coverage.lcov
 
-      - name: create Testnet configuration
-        shell: bash
-        run: |
-          echo "${{secrets.STX_SECRET_KEY}}"
+      # - name: create Testnet configuration
+      #   shell: bash
+      #   run: |
+      #     echo "${{secrets.STX_SECRET_KEY}}"
 
-          echo "[network]
-          name = \"testnet\"
-          node_rpc_address = \"https://stacks-node-api.testnet.stacks.co\"
-          deployment_fee_rate = 10
+      #     echo "[network]
+      #     name = \"testnet\"
+      #     node_rpc_address = \"https://stacks-node-api.testnet.stacks.co\"
+      #     deployment_fee_rate = 10
 
-          [accounts.deployer]
-          mnemonic = \"barely toward few ozone rare bus proof pencil during robust settle cute bullet cousin false unique bird birth dentist crowd kingdom tongue clean picnic\"
-          " > settings/Testnet.toml
+      #     [accounts.deployer]
+      #     mnemonic = \"${{secrets.STX_SECRET_KEY}}\"
+      #     " > settings/Testnet.toml
 
-          cat settings/Testnet.toml
+      #     cat settings/Testnet.toml
 
-      - name: "Deploy on Testnet"
-        uses: docker://hirosystems/clarinet:latest
-        with:
-          args: publish --testnet --manifest-path=./Clarinet.toml
+      # - name: "Deploy on Testnet"
+      #   uses: docker://hirosystems/clarinet:latest
+      #   with:
+      #     args: publish --testnet --manifest-path=./Clarinet.toml
