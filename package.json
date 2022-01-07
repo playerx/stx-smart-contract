@@ -14,7 +14,7 @@
     "ts-jest": "^27.1.2"
   },
   "scripts": {
-    "test": "jest --collect-coverage"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
