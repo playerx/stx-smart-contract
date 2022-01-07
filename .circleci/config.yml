@@ -26,6 +26,10 @@ jobs:
           version: 19.03.13
           docker_layer_caching: true
 
+      - run:
+          name: Check docker
+          command: docker --version
+
       # Next, the node orb's install-packages step will install the dependencies from a package.json.
       # The orb install-packages step will also automatically cache them for faster future runs.
       - node/install-packages:
