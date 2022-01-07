@@ -21,6 +21,7 @@ jobs:
         env:
           FORCE_COLOR: 1
           ENABLE_GAS_REPORT: true
+          RUST_BACKTRACE: 1
 
       # - name: "Execute unit tests"
       #   uses: docker://hirosystems/clarinet:latest
