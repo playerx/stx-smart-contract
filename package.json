@@ -1,0 +1,29 @@
+{
+  "name": "stx-smart-contract",
+  "version": "1.0.0",
+  "description": "[![codecov](https://codecov.io/gh/playerx/stx-smart-contract/branch/master/graph/badge.svg?token=DF74P3SBII)](https://codecov.io/gh/playerx/stx-smart-contract)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@hirosystems/stacks-devnet-js": "^0.23.0",
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.7",
+    "ts-jest": "^27.1.2"
+  },
+  "scripts": {
+    "test": "jest --collect-coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/playerx/stx-smart-contract.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/playerx/stx-smart-contract/issues"
+  },
+  "homepage": "https://github.com/playerx/stx-smart-contract#readme"
+}
